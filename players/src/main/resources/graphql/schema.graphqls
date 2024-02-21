@@ -1,0 +1,33 @@
+type Player{
+    playerId: ID!
+    playerName: String
+    team: String
+    age: Int
+    runs: Int
+}
+
+input UserInput{
+    playerName: String
+    team: String
+    age: Int
+    runs: Int
+}
+
+input UserInputForUpdate{
+    playerId: ID
+    playerName: String
+    team: String
+    age: Int
+    runs: Int
+}
+
+type Query{
+    findAll: [Player]
+    findOne(playerId: ID): Player
+}
+
+type Mutation{
+    create(input: UserInput): Player
+    update(input: UserInputForUpdate): Player
+    delete(playerId: ID): Player
+}
